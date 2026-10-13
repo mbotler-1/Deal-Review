@@ -24,13 +24,12 @@ produces a self-contained HTML page. Where the JSON comes from is up to you — 
 ./render_review.ps1 lost_deal.json -Out lost_example.html
 ```
 
-Open the HTML in a browser. Pre-rendered copies are committed as
-[`won_example.html`](won_example.html) and [`lost_example.html`](lost_example.html) so you can preview without running anything.
+Open the HTML in a browser. Pre-rendered PDF copies are included so you can preview without running anything.
 
 | Example | Outcome | What it shows |
 |---|---|---|
-| [`won_deal.json`](won_deal.json) → [won_example.html](Acme%20Robotics%20Deal%20Review.pdf) | **Closed Won** | Green palette, "What Worked" wins grid, win-reason box |
-| [`lost_deal.json`](lost_deal.json) → [lost_example.html](Globex%20Media%20Deal%20Review.pdf) | **Closed Lost** | Blue-gold palette, loss-reason box, "Re-Engagement Path" |
+| [`won_deal.json`](won_deal.json) → [Acme Robotics review (PDF)](Acme%20Robotics%20Deal%20Review.pdf) | **Closed Won** | Green palette, "What Worked" wins grid, win-reason box |
+| [`lost_deal.json`](lost_deal.json) → [Globex Media review (PDF)](Globex%20Media%20Deal%20Review.pdf) | **Closed Lost** | Blue-gold palette, loss-reason box, "Re-Engagement Path" |
 
 *(All example data is fictional — Acme Robotics and Globex Media are made up.)*
 
