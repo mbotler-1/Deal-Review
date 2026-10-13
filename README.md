@@ -58,8 +58,8 @@ deal-review-generator/
 ├─ lost_deal.json           # fictional Closed Lost fixture
 ├─ won_example.html        # pre-rendered sample HTML
 ├─ lost_example.html       # pre-rendered sample HTML
-├─ Acme Robotics Deal Review.pdf
-├─ Globex Media Deal Review.pdf
+├─ Acme Robotics Deal Review.pdf   # Closed Won sample
+├─ Globex Media Deal Review.pdf    # Closed Lost sample
 ├─ DEAL_SCHEMA.md           # the normalized deal-JSON contract
 ├─ SCHEMA_MAPPING.md       # how to map your CRM/warehouse into that JSON
 ├─ SKILL.md                 # orchestration for use as a Claude Code skill
