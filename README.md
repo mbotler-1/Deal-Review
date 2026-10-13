@@ -92,36 +92,6 @@ You have two options:
 - **Warehouse skill (optional):** the Google Cloud SDK (`bq`) on your `PATH`, plus read access to
   your warehouse. Nothing warehouse-specific is hardcoded — it's all in `config.yaml`.
 
-## Publishing to GitHub
-
-This repo is self-contained and safe to make public — it has no real customer data or internal
-schema (the examples are fictional). To put it on GitHub, run these in a terminal from the
-unzipped folder:
-
-```bash
-git init
-git add .
-git commit -m "Initial commit: Deal Review Generator"
-```
-
-Then create the remote and push. With the GitHub CLI (`gh`):
-
-```bash
-gh repo create deal-review-generator --public --source=. --push
-```
-
-Or, without `gh`, create an empty repo on github.com first, then:
-
-```bash
-git remote add origin https://github.com/<your-username>/deal-review-generator.git
-git branch -M main
-git push -u origin main
-```
-
-Before pushing, you may want to:
-- Put your name/handle in [`LICENSE`](LICENSE).
-- Drop a screenshot of a rendered example near the top of this README — GitHub renders images
-  inline, and it makes the repo far more compelling at a glance.
 
 ## License
 
