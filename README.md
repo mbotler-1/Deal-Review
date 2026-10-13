@@ -92,7 +92,6 @@ You have two options:
 - **Warehouse skill (optional):** the Google Cloud SDK (`bq`) on your `PATH`, plus read access to
   your warehouse. Nothing warehouse-specific is hardcoded — it's all in `config.yaml`.
 
-
 ## License
 
 MIT — see [LICENSE](LICENSE).
