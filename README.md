@@ -71,8 +71,8 @@ deal-review-generator/
 ├─ run_query.ps1            # generic bq CLI runner
 ├─ config.example.yaml      # warehouse + schema mapping (copy to config.yaml)
 ├─ .gitignore
-├─ LICENSE                  # MIT
-└─ deal-review-generator.zip
+└─ LICENSE                  # MIT
+
 ```
 
 ## Connect your own data
