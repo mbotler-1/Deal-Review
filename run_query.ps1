@@ -15,7 +15,7 @@ Environment / params:
   -OutFile      Write result here (UTF-8, no BOM) instead of returning it.
 
 Usage:
-  ./run_query.ps1 -SqlFile queries/10_resolve_opportunity.sql -Params @{ opp_query = 'Acme' } -Format prettyjson
+  ./run_query.ps1 10_resolve_opportunity.sql -Params @{ opp_query = 'Acme' } -Format prettyjson
 #>
 param(
   [Parameter(Mandatory = $true)][string]$SqlFile,
