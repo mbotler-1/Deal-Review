@@ -6,6 +6,8 @@ Turn a single opportunity into an **executive-ready, print-ready HTML deal-proce
 a timeline of CRM stage changes and activities, call-intelligence cards, and an automated
 process-gap analysis. Works for **Closed Won** and **Closed Lost** deals.
 
+   **Preview:** [Closed Won review (PDF)](Acme%20Robotics%20Deal%20Review.pdf) · [Closed Lost review (PDF)](Globex%20Media%20Deal%20Review.pdf)
+
 The engine is a small, dependency-free renderer that takes a **normalized deal JSON** and
 produces a self-contained HTML page. Where the JSON comes from is up to you — a warehouse
 (BigQuery/Snowflake), a CRM export, or hand-authored fixtures like the two included examples.
