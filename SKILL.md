@@ -11,7 +11,7 @@ templated (`{{placeholders}}`) so you can repoint it at your own schema. See
 `SCHEMA_MAPPING.md`.
 
 ## Prerequisites
-- `config.yaml` filled in (copy from `..config.example.yaml`): project, datasets, and the
+- `config.yaml` filled in (copy from `config.example.yaml`): project, datasets, and the
   `schema_map` column mapping.
 - The `bq` CLI on PATH (or `gcloud_sdk_bin` set in config); read access to your warehouse.
 
@@ -47,7 +47,7 @@ Map the rows into the shape in `DEAL_SCHEMA.md`:
 - field-history changes → `timeline` events (dot=`sf`), with gap/signal `flag`s
 - activities/meetings → `timeline` events (dot=`call`/`email`/`milestone`)
 - calls → `calls` cards; win/loss reason + synthesis → `summary`
-- derived checks → `gaps` (see `../docs/SCHEMA_MAPPING.md` for the check list)
+- derived checks → `gaps` (see `SCHEMA_MAPPING.md` for the check list)
 - Infer `outcome` from stage (Closed Won → won, Closed Lost → lost).
 
 ## Step 4 — render
