@@ -27,8 +27,8 @@ Open the HTML in a browser. Pre-rendered copies are committed as
 
 | Example | Outcome | What it shows |
 |---|---|---|
-| [`won_deal.json`](won_deal.json) → [won_example.html](won_example.html) | **Closed Won** | Green palette, "What Worked" wins grid, win-reason box |
-| [`lost_deal.json`](lost_deal.json) → [lost_example.html](lost_example.html) | **Closed Lost** | Blue-gold palette, loss-reason box, "Re-Engagement Path" |
+| [`won_deal.json`](won_deal.json) → [won_example.html](Acme%20Robotics%20Deal%20Review.pdf) | **Closed Won** | Green palette, "What Worked" wins grid, win-reason box |
+| [`lost_deal.json`](lost_deal.json) → [lost_example.html](Globex%20Media%20Deal%20Review.pdf) | **Closed Lost** | Blue-gold palette, loss-reason box, "Re-Engagement Path" |
 
 *(All example data is fictional — Acme Robotics and Globex Media are made up.)*
 
