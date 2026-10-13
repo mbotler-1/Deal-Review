@@ -2,15 +2,14 @@
 render_review.ps1 - Turn a normalized deal JSON into a print-ready HTML deal review.
 
 Cross-platform: Windows PowerShell 5.1 or PowerShell 7+ (pwsh) on macOS/Linux.
-No external modules. Point it at a deal JSON (see examples/ and docs/DEAL_SCHEMA.md);
+No external modules. Point it at a deal JSON (see DEAL_SCHEMA.md);
 it writes a single, self-contained HTML page.
 
 Usage:
-    ./render_review.ps1 examples/won_deal.json -Out examples/output/won_example.html
-    ./render_review.ps1 examples/lost_deal.json        # writes alongside the input
+    ./render_review.ps1 won_deal.json -Out won_example.html
+    ./render_review.ps1 lost_deal.json        # writes alongside the input
 
-The data layer (pulling a real deal from a warehouse) is separate: see skill/ and
-config.example.yaml. This renderer only cares about the JSON shape, so feed it from
+The data layer (pulling a real deal from a warehouse) is separate: see SKILL.md and config.example.yaml. This renderer only cares about the JSON shape, so feed it from
 BigQuery, Snowflake, a CRM export, or hand-authored fixtures like the examples.
 #>
 param(
