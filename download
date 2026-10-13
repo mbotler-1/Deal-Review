@@ -1,0 +1,26 @@
+# Local config with real warehouse details — never commit
+config.yaml
+config.local.yaml
+*.local.yaml
+
+# Generated reviews (keep examples/output/ as committed samples; ignore everything else)
+/out/
+/reviews/
+*.review.html
+
+# Scratch / data pulls
+/scratch/
+/data/
+*.tmp
+
+# Credentials — never commit
+*.key
+*.pem
+service-account*.json
+.env
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

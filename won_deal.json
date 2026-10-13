@@ -1,0 +1,94 @@
+{
+  "outcome": "won",
+  "title": "Acme Robotics Deal Review",
+  "chips": ["Closed Won", "Enterprise · Direct", "Streaming TV"],
+  "subtitle": "Acme Robotics — Streaming TV Performance Plan, $120K · AE: Jordan Rivera · SDR: Sam Patel · Mgr: Dana Chen",
+  "closed_label": "Closed 2026-03-18",
+  "footer_left": "Sample — fictional data · Deal Review Generator",
+  "footer_id": "Opp ID: OPP-DEMO-000123",
+  "stats": [
+    {"label": "Close Date", "value": "Mar 18, 2026", "sub": "~34-day cycle"},
+    {"label": "Amount", "value": "$120K", "sub": "up from $90K initial"},
+    {"label": "AE / SDR", "value": "Jordan Rivera", "sub": "SDR: Sam Patel"},
+    {"label": "Lead Source", "value": "Webinar", "sub": "Q1 CTV masterclass"},
+    {"label": "Engagement", "value": "3 calls", "sub": "Discovery → Closed Won"}
+  ],
+  "phases": [
+    {"label": "Prospecting", "dates": "Feb 12 – Feb 18"},
+    {"label": "Discovery", "dates": "Feb 19 – Feb 26"},
+    {"label": "Proposal", "dates": "Feb 27 – Mar 10"},
+    {"label": "Negotiation", "dates": "Mar 11 – Mar 17"},
+    {"label": "Closed Won", "dates": "Mar 18"}
+  ],
+  "summary": "Acme Robotics came in warm from a Q1 CTV webinar with a clear mandate to add a measurable, top-of-funnel channel ahead of a spring product launch. SDR Sam Patel booked the discovery call; AE Jordan Rivera ran a tight three-call cycle that aligned on a <strong>4–6× ROAS target</strong> and an April go-live. Executive sponsorship from the VP of Marketing and a concrete launch deadline turned an initial $90K scope into a <strong>$120K</strong> commitment.",
+  "context": "Enterprise / Direct, new business. Product: Streaming TV Performance Plan. A multi-threaded deal — SDR-sourced, AE-led, with the VP of Marketing (Casey Nguyen) as economic buyer and a marketing analyst validating measurement. The scope grew during proposal after a full-funnel plan (prospecting + retargeting) replaced the initial prospecting-only quote.",
+  "timeline": [
+    {"date": "Feb 12, 2026", "dot": "email", "title": "Webinar follow-up — SDR outreach", "body": "Sam Patel (SDR) follows up on Acme's Q1 CTV webinar registration with a tailored sequence."},
+    {"date": "Feb 18, 2026", "dot": "milestone", "title": "Discovery booked", "body": "Casey Nguyen (VP Marketing) accepts a discovery call. Demo Booked By: Sam Patel (SDR).", "flag": {"kind": "signal", "text": "SDR-sourced meeting"}},
+    {"date": "Feb 19, 2026", "dot": "call", "title": "Discovery call — goals & measurement", "body": "Aligned on a spring product launch, need for incremental reach, and a 4–6× ROAS goal."},
+    {"date": "Feb 20, 2026", "dot": "sf", "title": "SF: Opportunity created — $90K", "body": "Stage set to Discovery; prospecting-only initial scope."},
+    {"date": "Mar 3, 2026", "dot": "call", "title": "Solution & measurement review", "body": "Walked the analyst through attribution and an incrementality study; addressed a creative-specs question."},
+    {"date": "Mar 6, 2026", "dot": "sf", "title": "SF: Amount raised $90K → $120K", "body": "Full-funnel plan (prospecting + retargeting) replaces prospecting-only quote."},
+    {"date": "Mar 12, 2026", "dot": "call", "title": "Proposal review with VP", "body": "Casey Nguyen confirms budget and the April launch; verbal commit."},
+    {"date": "Mar 18, 2026", "dot": "milestone", "title": "SF: Closed Won — $120K", "body": "Signed; kickoff scheduled for the following week.", "flag": {"kind": "signal", "text": "Closed Won"}}
+  ],
+  "calls": [
+    {
+      "title": "Call 1: Discovery",
+      "meta": "Feb 19, 2026 · 32 min · Jordan Rivera (AE), Sam Patel (SDR), Casey Nguyen (VP Marketing)",
+      "chip": "Discovery",
+      "brief": "Acme is launching a new product line in spring and wants a measurable top-of-funnel channel beyond search and social. Discussed a 4–6× ROAS goal, an April go-live, and creative readiness.",
+      "sections": [
+        {"title": "What the Prospect Told Us", "items": [
+          {"kind": "note", "text": "Spring product launch — needs incremental reach fast"},
+          {"kind": "note", "text": "Search & social are saturating; wants a new channel"}
+        ]},
+        {"title": "Buying Signals", "items": [
+          {"kind": "pos", "text": "Committed to an April go-live date"},
+          {"kind": "pos", "text": "Outcome-focused (ROAS), not price-shopping"}
+        ]},
+        {"title": "Open Questions", "items": [
+          {"kind": "warn", "text": "Creative specs / asset readiness to confirm"}
+        ]}
+      ]
+    },
+    {
+      "title": "Call 2: Proposal Review",
+      "meta": "Mar 12, 2026 · 28 min · Jordan Rivera (AE), Casey Nguyen (VP Marketing), Priya Shah (Analyst)",
+      "chip": "Proposal",
+      "brief": "Reviewed the full-funnel plan and measurement approach. VP confirmed the $120K budget and April launch; analyst satisfied with the incrementality study design.",
+      "sections": [
+        {"title": "What Worked", "items": [
+          {"kind": "pos", "text": "Incrementality study answered the analyst's rigor bar"},
+          {"kind": "pos", "text": "Full-funnel plan expanded scope to $120K"}
+        ]},
+        {"title": "Pricing / Budget", "items": [
+          {"kind": "note", "text": "$120K committed; annual budget framing"},
+          {"kind": "pos", "text": "Verbal commit on the call"}
+        ]}
+      ]
+    }
+  ],
+  "moments": [
+    {"title": "Calls & Communication", "items": ["3 calls over ~3 weeks; SDR-sourced", "Multi-threaded: VP + analyst engaged", "Fast, decisive cadence"]},
+    {"title": "Pricing & Budget", "items": ["Initial $90K prospecting-only quote", "Grew to $120K full-funnel", "Annual budget confirmed by VP"]},
+    {"title": "Buying Signals", "items": ["Firm April launch date", "Outcome-focused (4–6× ROAS)", "Analyst validated measurement"]},
+    {"title": "Decisions & Expansion", "items": ["Chose full-funnel over prospecting-only", "Incrementality study scoped", "Kickoff booked at close"]}
+  ],
+  "wins": [
+    {"label": "Warm, Targeted Origin", "text": "A relevant webinar gave the SDR a high-intent VP contact — not a cold start."},
+    {"label": "Speed to Value", "text": "Discovery-to-close in ~3 weeks, tied to a concrete launch date."},
+    {"label": "Outcome Selling", "text": "Framed on ROAS and seasonality, not features — matched the buyer's mindset."},
+    {"label": "Multi-Threading", "text": "VP economic buyer plus an analyst de-risked the measurement objection."},
+    {"label": "Scope Expansion", "text": "A full-funnel plan lifted the deal 33% over the initial quote."},
+    {"label": "Clean Handoff", "text": "Kickoff scheduled at signature keeps launch momentum."}
+  ],
+  "gaps": [
+    {"label": "Gap 1: Creative Readiness", "body": "Creative specs were an open item on the discovery call with no linked task tracking asset readiness before launch.", "rec": "Auto-create a creative-assets task at Closed Won with an owner and a due date tied to the go-live."},
+    {"label": "Gap 2: Lead-Source Granularity", "body": "Lead Source is 'Webinar' but doesn't capture which webinar or campaign — attribution for event-sourced pipeline is coarse.", "rec": "Add a campaign/source detail field so specific events are measurable."},
+    {"label": "Gap 3: Amount-Change Note", "body": "The amount rose $90K → $120K with no reason logged; the scope change lives only in the rep's memory.", "rec": "Require a short reason on material amount changes for clean win analysis."},
+    {"label": "Gap 4: Next-Step Hygiene", "body": "Next Step was not consistently updated between the proposal and close stages.", "rec": "Flag active opps whose Next Step is unchanged for 7+ days."},
+    {"label": "Gap 5: Stakeholder Mapping", "body": "The analyst (Priya Shah) appeared only at proposal; no contact role was recorded for her earlier.", "rec": "Capture contact roles at discovery so the buying group is visible sooner."},
+    {"label": "Gap 6: Measurement Follow-Through", "body": "The incrementality study was scoped but has no owner/date for the post-launch read-out.", "rec": "Book the study read-out at close to institutionalize the land → prove → expand loop."}
+  ]
+}

@@ -1,0 +1,52 @@
+# Deal Review Generator — configuration example.
+# Copy to config.yaml (git-ignored) and fill in your own values.
+# Only needed if you use the warehouse skill (skill/). The renderer itself needs no config.
+
+warehouse:
+  # BigQuery reference implementation. Swap for your own warehouse if different.
+  provider: bigquery
+  project: your-gcp-project          # e.g. my-company-analytics
+  # The dataset(s) holding your CRM + call data.
+  crm_dataset: your_crm_dataset      # e.g. salesforce
+  calls_dataset: your_calls_dataset  # e.g. call_recordings (optional)
+
+# How your warehouse's columns map to the normalized deal fields the renderer expects.
+# The skill/queries/*.sql templates reference these as {{placeholders}}.
+schema_map:
+  opportunities_table: opportunities
+  opportunity_id_col: opportunity_id
+  opportunity_name_col: name
+  account_name_col: account_name
+  account_id_col: account_id
+  amount_col: amount
+  stage_col: stage
+  close_date_col: close_date
+  created_date_col: created_date
+  owner_col: owner
+  lead_source_col: lead_source
+  loss_reason_col: closed_reason      # blank/null for open or won deals
+
+  # Activities / tasks (for the timeline). Set to your activity table + link column.
+  activities_table: activities
+  activity_date_col: activity_date
+  activity_subject_col: subject
+  activity_link_col: opportunity_id   # or account_id, depending on how activities attach
+
+  # Field history: how you reconstruct field-level changes over time.
+  #   snapshot_diff = you keep daily row snapshots; the skill diffs consecutive days
+  #   audit_table   = your CRM exposes a native field-history/audit table
+  field_history_mode: snapshot_diff
+  field_history_table: opportunities_log
+
+  # Call transcripts (optional). Leave calls_dataset blank to skip call cards.
+  calls_table: call_transcripts
+  calls_link_col: account_id          # how calls join to the account/opp
+
+output:
+  # Where rendered reviews are written.
+  dir: ./out
+  filename_pattern: "{account}_Deal_Review.html"
+
+# Path to the Google Cloud SDK bin, if `bq` is not already on your PATH.
+# Leave blank to use whatever `bq` resolves to on PATH.
+gcloud_sdk_bin: ""

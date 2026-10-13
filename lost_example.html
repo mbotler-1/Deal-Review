@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Globex Media Deal Review</title>
+<style>:root{
+  --navy:#12141C; --accent:#6A7EC8; --accent-light:#E2E7F5;
+  --accent-ink:#3a4a86; --amber:#C8A830; --signal:#C8A830;
+  --red:#C84040; --red-light:#F5DADA; --green:#3AAF80; --green-light:#C6EDD9;
+  --border:#D0D9E4; --bg:#F4F6F9; --text:#1A2A3A; --text-muted:#5A6E82;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter','Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:13px;line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.page{max-width:1200px;margin:0 auto;padding:0 0 60px;background:var(--bg);}
+.cover{background:var(--navy);color:#fff;padding:40px 48px 32px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;}
+.cover-title{font-size:28px;font-weight:700;margin-bottom:8px;}
+.cover-sub{font-size:14px;color:rgba(255,255,255,.6);}
+.cover-right{text-align:right;color:rgba(255,255,255,.5);font-size:12px;white-space:nowrap;}
+.chip{display:inline-block;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-right:8px;}
+.chip-won{background:var(--green-light);color:var(--green);}
+.chip-lost{background:var(--red-light);color:var(--red);}
+.chip-alt{background:rgba(255,255,255,.12);color:#fff;}
+.stat-bar{display:flex;background:#fff;border-bottom:2px solid var(--border);flex-wrap:wrap;}
+.stat{flex:1;min-width:150px;padding:16px 20px;border-right:1px solid var(--border);}
+.stat:last-child{border-right:none;}
+.stat-label{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:4px;}
+.stat-value{font-size:18px;font-weight:700;color:var(--text);}
+.stat-sub{font-size:11px;color:var(--text-muted);margin-top:2px;}
+.phase-bar{display:flex;background:var(--navy);flex-wrap:wrap;}
+.phase{flex:1;min-width:140px;padding:12px 16px;border-right:1px solid rgba(255,255,255,.1);color:#fff;}
+.phase:last-child{border-right:none;}
+.phase-num{font-size:10px;opacity:.5;margin-bottom:2px;}
+.phase-label{font-weight:600;font-size:12px;}
+.phase-lost .phase-label{color:#E8A0A0;}
+.phase-dates{font-size:10px;margin-top:3px;opacity:.6;}
+.body{background:var(--bg);padding:32px 48px;}
+.reason{border-radius:8px;padding:20px 24px;margin-bottom:20px;}
+.reason-won{background:var(--green-light);border-left:4px solid var(--green);}
+.reason-lost{background:var(--red-light);border-left:4px solid var(--red);}
+.context-box{background:#fff;border:1px solid var(--border);border-radius:8px;padding:20px 24px;margin-bottom:24px;}
+.box-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+.section-header{display:flex;align-items:center;gap:12px;margin:32px 0 16px;}
+.section-header h2{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);white-space:nowrap;}
+.section-header::after{content:'';flex:1;height:1px;background:var(--border);}
+.timeline{position:relative;padding-left:32px;margin-bottom:20px;}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--border);}
+.t-event{position:relative;margin-bottom:20px;}
+.t-dot{position:absolute;left:-28px;top:4px;width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 2px currentColor;}
+.dot-call{background:#3A7EC8;color:#3A7EC8;}
+.dot-email{background:#8A9BB0;color:#8A9BB0;}
+.dot-sf{background:var(--accent);color:var(--accent);}
+.dot-milestone{background:var(--amber);color:var(--amber);width:16px;height:16px;left:-30px;top:2px;}
+.dot-gap{background:var(--red);color:var(--red);}
+.dot-signal{background:var(--signal);color:var(--signal);}
+.dot-lost{background:var(--red);color:var(--red);width:16px;height:16px;left:-30px;top:2px;}
+.dot-post{background:#A8D8EA;color:#A8D8EA;}
+.t-date{font-size:10px;color:var(--text-muted);margin-bottom:2px;}
+.t-title{font-weight:600;font-size:13px;margin-bottom:4px;}
+.t-body{font-size:12px;color:var(--text-muted);}
+.flag{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;margin-top:4px;}
+.flag-gap{background:var(--red-light);color:var(--red);}
+.flag-signal{background:#DDF3EC;color:var(--green);}
+.call-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:24px;margin-bottom:24px;}
+.call-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border);gap:16px;}
+.call-title{font-weight:700;font-size:15px;}
+.call-meta{font-size:11px;color:var(--text-muted);margin-top:4px;}
+.call-chip{font-size:10px;font-weight:600;padding:3px 10px;border-radius:12px;background:var(--accent-light);color:var(--accent-ink);white-space:nowrap;}
+.call-brief{font-size:12px;font-style:italic;color:var(--text-muted);margin-bottom:16px;padding:10px 14px;background:var(--bg);border-radius:6px;}
+.call-sections{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.call-section{margin-bottom:14px;}
+.call-section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:8px;}
+.call-section ul{list-style:none;padding:0;}
+.call-section li{font-size:12px;padding:3px 0 3px 18px;position:relative;}
+.call-section li::before{position:absolute;left:0;}
+.call-section li.pos::before{content:'\2713';color:var(--green);}
+.call-section li.warn::before{content:'\26A0';color:var(--amber);}
+.call-section li.note::before{content:'\25CF';color:var(--text-muted);font-size:9px;top:3px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:12px;}
+.card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:20px;}
+.card-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:12px;}
+.card ul{list-style:none;padding:0;}
+.card li{font-size:12px;padding:3px 0 3px 16px;position:relative;color:var(--text);}
+.card li::before{content:'\25CF';position:absolute;left:0;color:var(--accent);font-size:9px;top:4px;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:12px;}
+.tri-card{background:#fff;border-radius:8px;padding:20px;border-top:3px solid var(--accent);}
+.tri-card.win{border-top-color:var(--green);}
+.tri-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;color:var(--accent);}
+.tri-card.win .tri-label{color:var(--green);}
+.tri-card p{font-size:12px;color:var(--text-muted);}
+.gaps-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.gap-card{background:#fff;border-radius:8px;padding:20px;border-left:3px solid var(--red);}
+.gap-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--red);margin-bottom:8px;}
+.gap-card p{font-size:12.5px;}
+.gap-rec{margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:11px;color:var(--text-muted);}
+.gap-rec strong{color:var(--text);}
+.footer{background:var(--navy);color:rgba(255,255,255,.4);padding:16px 48px;font-size:11px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+@media (max-width:760px){.grid2,.grid3,.call-sections,.gaps-grid{grid-template-columns:1fr;}}
+@media print{body{font-size:11px;}.page{max-width:100%;padding:0;}}</style>
+</head>
+<body>
+<div class="page">
+<div class="cover"><div><div style="margin-bottom:12px;"><span class="chip chip-lost">Closed Lost</span><span class="chip chip-alt">Mid-Market · Direct</span><span class="chip chip-alt">Streaming TV</span></div><div class="cover-title">Globex Media Deal Review</div><div class="cover-sub">Globex Media — Streaming TV, $85K · Lost "Budget cut" · AE: Morgan Lee · Mgr: Dana Chen</div></div><div class="cover-right">Lost 2026-06-30<br>Prepared by Sales Ops</div></div>
+<div class="stat-bar"><div class="stat"><div class="stat-label">Outcome</div><div class="stat-value">Closed Lost</div><div class="stat-sub">Jun 30, 2026 · "Budget cut"</div></div><div class="stat"><div class="stat-label">Amount</div><div class="stat-value">$85K</div><div class="stat-sub">cut from $140K · never booked</div></div><div class="stat"><div class="stat-label">Cycle</div><div class="stat-value">~5 mo</div><div class="stat-sub">Feb → Jun 2026</div></div><div class="stat"><div class="stat-label">Close-Date Slips</div><div class="stat-value">5×</div><div class="stat-sub">~3 mo stalled in Proposal</div></div><div class="stat"><div class="stat-label">Engagement</div><div class="stat-value">2 calls</div><div class="stat-sub">Inbound demo request</div></div></div>
+<div class="phase-bar"><div class="phase"><div class="phase-num">Phase 1</div><div class="phase-label">Inbound & Demo</div><div class="phase-dates">Feb 2026</div></div><div class="phase"><div class="phase-num">Phase 2</div><div class="phase-label">Discovery</div><div class="phase-dates">Feb – Mar</div></div><div class="phase"><div class="phase-num">Phase 3</div><div class="phase-label">Proposal (Stalled)</div><div class="phase-dates">Mar – Jun</div></div><div class="phase"><div class="phase-num">Phase 4</div><div class="phase-label">Decision</div><div class="phase-dates">Jun</div></div><div class="phase phase-lost"><div class="phase-num">Phase 5</div><div class="phase-label">Closed Lost</div><div class="phase-dates">Jun 30</div></div></div>
+<div class="body"><div class="reason reason-lost"><div class="box-title" style="color:var(--red);">Why This Deal Was Lost</div><p>Recorded loss reason: <strong>"Budget cut."</strong> An inbound demo request created early momentum, but the champion never secured executive budget sign-off. Facing a mid-year spend freeze, the deal slowly stalled — five close-date pushes over three months in Proposal — while the scope was quietly halved ($140K → $85K) without a reset. It ended as a no-decision, not a competitive loss, which makes it re-engageable next budget cycle.</p></div><div class="context-box"><div class="box-title" style="color:var(--text-muted);">Deal Context</div><p>Mid-Market / Direct, new business. Product: Streaming TV. Champion Alex Doyle (Marketing Manager) was enthusiastic but not the economic buyer; the VP of Finance controlled the budget and never joined a call. When a company-wide spend freeze hit in Q2, the un-sponsored deal had no internal advocate senior enough to protect it.</p></div><div class="section-header"><h2>Deal Timeline</h2></div><div class="timeline"><div class="t-event"><div class="t-dot dot-signal"></div><div class="t-date">Feb 6, 2026</div><div class="t-title">Inbound demo request</div><div class="t-body">Alex Doyle (Marketing Manager) requests a demo via the website.</div><span class="flag flag-signal">Inbound intent</span></div><div class="t-event"><div class="t-dot dot-call"></div><div class="t-date">Feb 11, 2026</div><div class="t-title">Demo call</div><div class="t-body">Strong interest in CTV for a brand-awareness push; champion engaged.</div></div><div class="t-event"><div class="t-dot dot-sf"></div><div class="t-date">Feb 13, 2026</div><div class="t-title">SF: Opportunity created — $140K</div><div class="t-body">Stage Discovery; ambitious initial scope.</div></div><div class="t-event"><div class="t-dot dot-sf"></div><div class="t-date">Mar 4, 2026</div><div class="t-title">SF: Stage → Proposal</div><div class="t-body">Proposal sent; probability set to 60%.</div></div><div class="t-event"><div class="t-dot dot-gap"></div><div class="t-date">Mar 20 – May 28, 2026</div><div class="t-title">SF: Close date slips five times</div><div class="t-body">Mar 31 → Apr 15 → Apr 30 → May 20 → Jun 15 — stuck in Proposal awaiting budget sign-off.</div><span class="flag flag-gap">Serial slippage · no exec sponsor</span></div><div class="t-event"><div class="t-dot dot-call"></div><div class="t-date">Apr 22, 2026</div><div class="t-title">Check-in call — budget uncertainty</div><div class="t-body">Champion flags a possible spend freeze; asks for a smaller option. Economic buyer still absent.</div><span class="flag flag-gap">Risk surfaced, not escalated</span></div><div class="t-event"><div class="t-dot dot-gap"></div><div class="t-date">May 2, 2026</div><div class="t-title">SF: Amount cut $140K → $85K</div><div class="t-body">Scope halved to fit a reduced budget; plan not re-baselined.</div><span class="flag flag-gap">Scope cut without reset</span></div><div class="t-event"><div class="t-dot dot-lost"></div><div class="t-date">Jun 30, 2026</div><div class="t-title">SF: Closed Lost — "Budget cut"</div><div class="t-body">Probability 60 → 0 the same day; no re-engage task or future date logged.</div><span class="flag flag-gap">Closed Lost</span></div></div><div class="section-header"><h2>Call Deep Dives</h2></div><div class="call-card"><div class="call-header"><div><div class="call-title">Call 1: Demo</div><div class="call-meta">Feb 11, 2026 · 30 min · Morgan Lee (AE), Alex Doyle (Marketing Manager)</div></div><span class="call-chip">Demo</span></div><div class="call-brief">Inbound demo for a brand-awareness push. Champion enthusiastic about CTV reach and measurement, but budget ownership and timeline were left vague.</div><div class="call-sections"><div><div class="call-section"><div class="call-section-title">Signals</div><ul><li class="pos">Inbound, high initial enthusiasm</li><li class="pos">Clear use case (brand awareness)</li></ul></div></div><div><div class="call-section"><div class="call-section-title">Risk Signals</div><ul><li class="warn">Champion is not the economic buyer</li><li class="warn">No budget owner identified or invited</li></ul></div></div></div></div><div class="call-card"><div class="call-header"><div><div class="call-title">Call 2: Check-in</div><div class="call-meta">Apr 22, 2026 · 22 min · Morgan Lee (AE), Alex Doyle (Marketing Manager)</div></div><span class="call-chip">Mid-deal</span></div><div class="call-brief">Champion signals a possible company-wide spend freeze and asks for a smaller package. The economic buyer (VP Finance) still had not joined any conversation.</div><div class="call-sections"><div><div class="call-section"><div class="call-section-title">Blockers</div><ul><li class="warn">Spend freeze looming; budget not secured</li><li class="warn">No path to the VP of Finance</li></ul></div></div><div><div class="call-section"><div class="call-section-title">What Was Missing</div><ul><li class="warn">Deal already ~7 weeks stalled in Proposal</li><li class="note">No exec escalation or multi-thread attempt</li></ul></div></div></div></div><div class="section-header"><h2>Key Moments</h2></div><div class="grid2"><div class="card"><div class="card-title">The Core Blocker</div><ul><li>No executive budget sponsor</li><li>Champion enthusiastic but not empowered</li><li>Q2 spend freeze killed an un-protected deal</li></ul></div><div class="card"><div class="card-title">Deal Economics</div><ul><li>Scope halved $140K → $85K</li><li>Never re-baselined after the cut</li><li>No-decision, not a competitive loss</li></ul></div><div class="card"><div class="card-title">Forecast Behavior</div><ul><li>5 close-date slips; ~3 mo in Proposal</li><li>Held at 60% until the day it was lost</li><li>Dropped 60% → 0% at Closed Lost</li></ul></div><div class="card"><div class="card-title">Relationship Health</div><ul><li>Warm inbound origin</li><li>Single-threaded on the champion</li><li>Door remains open next cycle</li></ul></div></div><div class="section-header"><h2>Re-Engagement Path</h2></div><div class="grid3"><div class="tri-card"><div class="tri-label">1 · Re-time to Budget Cycle</div><p>The loss was budget timing, not a no. Set a re-engage task now for the next planning window and re-open with a right-sized pilot.</p></div><div class="tri-card"><div class="tri-label">2 · Multi-Thread to Finance</div><p>Get to the VP of Finance early next time — the deal died un-sponsored. Arm the champion with a one-page business case for exec sign-off.</p></div><div class="tri-card"><div class="tri-label">3 · Lead with a Pilot</div><p>Re-approach with a low-commitment pilot and a brand-lift study so value is proven before a full-budget ask.</p></div></div><div class="section-header"><h2>Process Gaps</h2></div><div class="gaps-grid"><div class="gap-card"><div class="gap-label">Gap 1: No Re-Engage Task at Close</div><p>A 'Budget cut' loss is highly re-engageable, yet the opp closed with no re-engage task, future date, or next step logged.</p><div class="gap-rec"><strong>Recommendation:</strong> Make a dated re-engage task mandatory in the Closed Lost flow when the reason is budget/timing.</div></div><div class="gap-card"><div class="gap-label">Gap 2: No Executive Sponsor</div><p>The deal ran for five months single-threaded on a champion who never had budget authority; the economic buyer never joined a call.</p><div class="gap-rec"><strong>Recommendation:</strong> Require an identified economic buyer to advance past Discovery; block Proposal without a mapped budget owner.</div></div><div class="gap-card"><div class="gap-label">Gap 3: Serial Close-Date Slippage</div><p>The close date moved five times over three months, each push keeping the deal 'alive' without a changed commitment.</p><div class="gap-rec"><strong>Recommendation:</strong> Require a reason on every close-date change; auto-flag any opp with 3+ pushes for a qualify-or-kill review.</div></div><div class="gap-card"><div class="gap-label">Gap 4: Happy-Ears Forecast</div><p>Probability sat at 60% in Proposal for ~3 months, then dropped to 0% the day it was lost — the forecast never reflected the deal's health.</p><div class="gap-rec"><strong>Recommendation:</strong> Tie probability to objective stage-exit criteria; down-rank stale high-probability opps in the weekly review.</div></div><div class="gap-card"><div class="gap-label">Gap 5: Scope Cut Without Re-Baseline</div><p>The amount was halved ($140K → $85K) mid-deal with no reset of plan, timeline, or decision criteria.</p><div class="gap-rec"><strong>Recommendation:</strong> Treat a >25% amount change as a re-baseline trigger — reconfirm scope, timeline, and close plan.</div></div><div class="gap-card"><div class="gap-label">Gap 6: Risk Not Escalated</div><p>The champion flagged a spend freeze on the April call, but no manager escalation or save-play was logged before the deal died.</p><div class="gap-rec"><strong>Recommendation:</strong> Log deal risks as tracked items; trigger a manager review when a budget-freeze risk is raised on an active deal.</div></div></div></div>
+<div class="footer"><span>Sample — fictional data · Deal Review Generator</span><span>Opp ID: OPP-DEMO-000456</span></div>
+</div>
+</body>
+</html>

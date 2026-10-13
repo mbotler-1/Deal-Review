@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Acme Robotics Deal Review</title>
+<style>:root{
+  --navy:#0D1C14; --accent:#4A9E6A; --accent-light:#A8D8BA;
+  --accent-ink:#2c6b45; --amber:#D4903A; --signal:#3A9EAF;
+  --red:#C84040; --red-light:#F5DADA; --green:#3AAF80; --green-light:#C6EDD9;
+  --border:#D0D9E4; --bg:#F4F6F9; --text:#1A2A3A; --text-muted:#5A6E82;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter','Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:13px;line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.page{max-width:1200px;margin:0 auto;padding:0 0 60px;background:var(--bg);}
+.cover{background:var(--navy);color:#fff;padding:40px 48px 32px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;}
+.cover-title{font-size:28px;font-weight:700;margin-bottom:8px;}
+.cover-sub{font-size:14px;color:rgba(255,255,255,.6);}
+.cover-right{text-align:right;color:rgba(255,255,255,.5);font-size:12px;white-space:nowrap;}
+.chip{display:inline-block;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-right:8px;}
+.chip-won{background:var(--green-light);color:var(--green);}
+.chip-lost{background:var(--red-light);color:var(--red);}
+.chip-alt{background:rgba(255,255,255,.12);color:#fff;}
+.stat-bar{display:flex;background:#fff;border-bottom:2px solid var(--border);flex-wrap:wrap;}
+.stat{flex:1;min-width:150px;padding:16px 20px;border-right:1px solid var(--border);}
+.stat:last-child{border-right:none;}
+.stat-label{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:4px;}
+.stat-value{font-size:18px;font-weight:700;color:var(--text);}
+.stat-sub{font-size:11px;color:var(--text-muted);margin-top:2px;}
+.phase-bar{display:flex;background:var(--navy);flex-wrap:wrap;}
+.phase{flex:1;min-width:140px;padding:12px 16px;border-right:1px solid rgba(255,255,255,.1);color:#fff;}
+.phase:last-child{border-right:none;}
+.phase-num{font-size:10px;opacity:.5;margin-bottom:2px;}
+.phase-label{font-weight:600;font-size:12px;}
+.phase-lost .phase-label{color:#E8A0A0;}
+.phase-dates{font-size:10px;margin-top:3px;opacity:.6;}
+.body{background:var(--bg);padding:32px 48px;}
+.reason{border-radius:8px;padding:20px 24px;margin-bottom:20px;}
+.reason-won{background:var(--green-light);border-left:4px solid var(--green);}
+.reason-lost{background:var(--red-light);border-left:4px solid var(--red);}
+.context-box{background:#fff;border:1px solid var(--border);border-radius:8px;padding:20px 24px;margin-bottom:24px;}
+.box-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+.section-header{display:flex;align-items:center;gap:12px;margin:32px 0 16px;}
+.section-header h2{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);white-space:nowrap;}
+.section-header::after{content:'';flex:1;height:1px;background:var(--border);}
+.timeline{position:relative;padding-left:32px;margin-bottom:20px;}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--border);}
+.t-event{position:relative;margin-bottom:20px;}
+.t-dot{position:absolute;left:-28px;top:4px;width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 2px currentColor;}
+.dot-call{background:#3A7EC8;color:#3A7EC8;}
+.dot-email{background:#8A9BB0;color:#8A9BB0;}
+.dot-sf{background:var(--accent);color:var(--accent);}
+.dot-milestone{background:var(--amber);color:var(--amber);width:16px;height:16px;left:-30px;top:2px;}
+.dot-gap{background:var(--red);color:var(--red);}
+.dot-signal{background:var(--signal);color:var(--signal);}
+.dot-lost{background:var(--red);color:var(--red);width:16px;height:16px;left:-30px;top:2px;}
+.dot-post{background:#A8D8EA;color:#A8D8EA;}
+.t-date{font-size:10px;color:var(--text-muted);margin-bottom:2px;}
+.t-title{font-weight:600;font-size:13px;margin-bottom:4px;}
+.t-body{font-size:12px;color:var(--text-muted);}
+.flag{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;margin-top:4px;}
+.flag-gap{background:var(--red-light);color:var(--red);}
+.flag-signal{background:#DDF3EC;color:var(--green);}
+.call-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:24px;margin-bottom:24px;}
+.call-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border);gap:16px;}
+.call-title{font-weight:700;font-size:15px;}
+.call-meta{font-size:11px;color:var(--text-muted);margin-top:4px;}
+.call-chip{font-size:10px;font-weight:600;padding:3px 10px;border-radius:12px;background:var(--accent-light);color:var(--accent-ink);white-space:nowrap;}
+.call-brief{font-size:12px;font-style:italic;color:var(--text-muted);margin-bottom:16px;padding:10px 14px;background:var(--bg);border-radius:6px;}
+.call-sections{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.call-section{margin-bottom:14px;}
+.call-section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:8px;}
+.call-section ul{list-style:none;padding:0;}
+.call-section li{font-size:12px;padding:3px 0 3px 18px;position:relative;}
+.call-section li::before{position:absolute;left:0;}
+.call-section li.pos::before{content:'\2713';color:var(--green);}
+.call-section li.warn::before{content:'\26A0';color:var(--amber);}
+.call-section li.note::before{content:'\25CF';color:var(--text-muted);font-size:9px;top:3px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:12px;}
+.card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:20px;}
+.card-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:12px;}
+.card ul{list-style:none;padding:0;}
+.card li{font-size:12px;padding:3px 0 3px 16px;position:relative;color:var(--text);}
+.card li::before{content:'\25CF';position:absolute;left:0;color:var(--accent);font-size:9px;top:4px;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:12px;}
+.tri-card{background:#fff;border-radius:8px;padding:20px;border-top:3px solid var(--accent);}
+.tri-card.win{border-top-color:var(--green);}
+.tri-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;color:var(--accent);}
+.tri-card.win .tri-label{color:var(--green);}
+.tri-card p{font-size:12px;color:var(--text-muted);}
+.gaps-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.gap-card{background:#fff;border-radius:8px;padding:20px;border-left:3px solid var(--red);}
+.gap-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--red);margin-bottom:8px;}
+.gap-card p{font-size:12.5px;}
+.gap-rec{margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:11px;color:var(--text-muted);}
+.gap-rec strong{color:var(--text);}
+.footer{background:var(--navy);color:rgba(255,255,255,.4);padding:16px 48px;font-size:11px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+@media (max-width:760px){.grid2,.grid3,.call-sections,.gaps-grid{grid-template-columns:1fr;}}
+@media print{body{font-size:11px;}.page{max-width:100%;padding:0;}}</style>
+</head>
+<body>
+<div class="page">
+<div class="cover"><div><div style="margin-bottom:12px;"><span class="chip chip-won">Closed Won</span><span class="chip chip-alt">Enterprise · Direct</span><span class="chip chip-alt">Streaming TV</span></div><div class="cover-title">Acme Robotics Deal Review</div><div class="cover-sub">Acme Robotics — Streaming TV Performance Plan, $120K · AE: Jordan Rivera · SDR: Sam Patel · Mgr: Dana Chen</div></div><div class="cover-right">Closed 2026-03-18<br>Prepared by Sales Ops</div></div>
+<div class="stat-bar"><div class="stat"><div class="stat-label">Close Date</div><div class="stat-value">Mar 18, 2026</div><div class="stat-sub">~34-day cycle</div></div><div class="stat"><div class="stat-label">Amount</div><div class="stat-value">$120K</div><div class="stat-sub">up from $90K initial</div></div><div class="stat"><div class="stat-label">AE / SDR</div><div class="stat-value">Jordan Rivera</div><div class="stat-sub">SDR: Sam Patel</div></div><div class="stat"><div class="stat-label">Lead Source</div><div class="stat-value">Webinar</div><div class="stat-sub">Q1 CTV masterclass</div></div><div class="stat"><div class="stat-label">Engagement</div><div class="stat-value">3 calls</div><div class="stat-sub">Discovery → Closed Won</div></div></div>
+<div class="phase-bar"><div class="phase"><div class="phase-num">Phase 1</div><div class="phase-label">Prospecting</div><div class="phase-dates">Feb 12 – Feb 18</div></div><div class="phase"><div class="phase-num">Phase 2</div><div class="phase-label">Discovery</div><div class="phase-dates">Feb 19 – Feb 26</div></div><div class="phase"><div class="phase-num">Phase 3</div><div class="phase-label">Proposal</div><div class="phase-dates">Feb 27 – Mar 10</div></div><div class="phase"><div class="phase-num">Phase 4</div><div class="phase-label">Negotiation</div><div class="phase-dates">Mar 11 – Mar 17</div></div><div class="phase"><div class="phase-num">Phase 5</div><div class="phase-label">Closed Won</div><div class="phase-dates">Mar 18</div></div></div>
+<div class="body"><div class="reason reason-won"><div class="box-title" style="color:var(--accent-ink);">Why This Deal Closed</div><p>Acme Robotics came in warm from a Q1 CTV webinar with a clear mandate to add a measurable, top-of-funnel channel ahead of a spring product launch. SDR Sam Patel booked the discovery call; AE Jordan Rivera ran a tight three-call cycle that aligned on a <strong>4–6× ROAS target</strong> and an April go-live. Executive sponsorship from the VP of Marketing and a concrete launch deadline turned an initial $90K scope into a <strong>$120K</strong> commitment.</p></div><div class="context-box"><div class="box-title" style="color:var(--text-muted);">Deal Context</div><p>Enterprise / Direct, new business. Product: Streaming TV Performance Plan. A multi-threaded deal — SDR-sourced, AE-led, with the VP of Marketing (Casey Nguyen) as economic buyer and a marketing analyst validating measurement. The scope grew during proposal after a full-funnel plan (prospecting + retargeting) replaced the initial prospecting-only quote.</p></div><div class="section-header"><h2>Deal Timeline</h2></div><div class="timeline"><div class="t-event"><div class="t-dot dot-email"></div><div class="t-date">Feb 12, 2026</div><div class="t-title">Webinar follow-up — SDR outreach</div><div class="t-body">Sam Patel (SDR) follows up on Acme's Q1 CTV webinar registration with a tailored sequence.</div></div><div class="t-event"><div class="t-dot dot-milestone"></div><div class="t-date">Feb 18, 2026</div><div class="t-title">Discovery booked</div><div class="t-body">Casey Nguyen (VP Marketing) accepts a discovery call. Demo Booked By: Sam Patel (SDR).</div><span class="flag flag-signal">SDR-sourced meeting</span></div><div class="t-event"><div class="t-dot dot-call"></div><div class="t-date">Feb 19, 2026</div><div class="t-title">Discovery call — goals & measurement</div><div class="t-body">Aligned on a spring product launch, need for incremental reach, and a 4–6× ROAS goal.</div></div><div class="t-event"><div class="t-dot dot-sf"></div><div class="t-date">Feb 20, 2026</div><div class="t-title">SF: Opportunity created — $90K</div><div class="t-body">Stage set to Discovery; prospecting-only initial scope.</div></div><div class="t-event"><div class="t-dot dot-call"></div><div class="t-date">Mar 3, 2026</div><div class="t-title">Solution & measurement review</div><div class="t-body">Walked the analyst through attribution and an incrementality study; addressed a creative-specs question.</div></div><div class="t-event"><div class="t-dot dot-sf"></div><div class="t-date">Mar 6, 2026</div><div class="t-title">SF: Amount raised $90K → $120K</div><div class="t-body">Full-funnel plan (prospecting + retargeting) replaces prospecting-only quote.</div></div><div class="t-event"><div class="t-dot dot-call"></div><div class="t-date">Mar 12, 2026</div><div class="t-title">Proposal review with VP</div><div class="t-body">Casey Nguyen confirms budget and the April launch; verbal commit.</div></div><div class="t-event"><div class="t-dot dot-milestone"></div><div class="t-date">Mar 18, 2026</div><div class="t-title">SF: Closed Won — $120K</div><div class="t-body">Signed; kickoff scheduled for the following week.</div><span class="flag flag-signal">Closed Won</span></div></div><div class="section-header"><h2>Call Deep Dives</h2></div><div class="call-card"><div class="call-header"><div><div class="call-title">Call 1: Discovery</div><div class="call-meta">Feb 19, 2026 · 32 min · Jordan Rivera (AE), Sam Patel (SDR), Casey Nguyen (VP Marketing)</div></div><span class="call-chip">Discovery</span></div><div class="call-brief">Acme is launching a new product line in spring and wants a measurable top-of-funnel channel beyond search and social. Discussed a 4–6× ROAS goal, an April go-live, and creative readiness.</div><div class="call-sections"><div><div class="call-section"><div class="call-section-title">What the Prospect Told Us</div><ul><li class="note">Spring product launch — needs incremental reach fast</li><li class="note">Search & social are saturating; wants a new channel</li></ul></div><div class="call-section"><div class="call-section-title">Buying Signals</div><ul><li class="pos">Committed to an April go-live date</li><li class="pos">Outcome-focused (ROAS), not price-shopping</li></ul></div></div><div><div class="call-section"><div class="call-section-title">Open Questions</div><ul><li class="warn">Creative specs / asset readiness to confirm</li></ul></div></div></div></div><div class="call-card"><div class="call-header"><div><div class="call-title">Call 2: Proposal Review</div><div class="call-meta">Mar 12, 2026 · 28 min · Jordan Rivera (AE), Casey Nguyen (VP Marketing), Priya Shah (Analyst)</div></div><span class="call-chip">Proposal</span></div><div class="call-brief">Reviewed the full-funnel plan and measurement approach. VP confirmed the $120K budget and April launch; analyst satisfied with the incrementality study design.</div><div class="call-sections"><div><div class="call-section"><div class="call-section-title">What Worked</div><ul><li class="pos">Incrementality study answered the analyst's rigor bar</li><li class="pos">Full-funnel plan expanded scope to $120K</li></ul></div></div><div><div class="call-section"><div class="call-section-title">Pricing / Budget</div><ul><li class="note">$120K committed; annual budget framing</li><li class="pos">Verbal commit on the call</li></ul></div></div></div></div><div class="section-header"><h2>Key Moments</h2></div><div class="grid2"><div class="card"><div class="card-title">Calls & Communication</div><ul><li>3 calls over ~3 weeks; SDR-sourced</li><li>Multi-threaded: VP + analyst engaged</li><li>Fast, decisive cadence</li></ul></div><div class="card"><div class="card-title">Pricing & Budget</div><ul><li>Initial $90K prospecting-only quote</li><li>Grew to $120K full-funnel</li><li>Annual budget confirmed by VP</li></ul></div><div class="card"><div class="card-title">Buying Signals</div><ul><li>Firm April launch date</li><li>Outcome-focused (4–6× ROAS)</li><li>Analyst validated measurement</li></ul></div><div class="card"><div class="card-title">Decisions & Expansion</div><ul><li>Chose full-funnel over prospecting-only</li><li>Incrementality study scoped</li><li>Kickoff booked at close</li></ul></div></div><div class="section-header"><h2>What Worked</h2></div><div class="grid3"><div class="tri-card win"><div class="tri-label">Warm, Targeted Origin</div><p>A relevant webinar gave the SDR a high-intent VP contact — not a cold start.</p></div><div class="tri-card win"><div class="tri-label">Speed to Value</div><p>Discovery-to-close in ~3 weeks, tied to a concrete launch date.</p></div><div class="tri-card win"><div class="tri-label">Outcome Selling</div><p>Framed on ROAS and seasonality, not features — matched the buyer's mindset.</p></div><div class="tri-card win"><div class="tri-label">Multi-Threading</div><p>VP economic buyer plus an analyst de-risked the measurement objection.</p></div><div class="tri-card win"><div class="tri-label">Scope Expansion</div><p>A full-funnel plan lifted the deal 33% over the initial quote.</p></div><div class="tri-card win"><div class="tri-label">Clean Handoff</div><p>Kickoff scheduled at signature keeps launch momentum.</p></div></div><div class="section-header"><h2>Process Gaps</h2></div><div class="gaps-grid"><div class="gap-card"><div class="gap-label">Gap 1: Creative Readiness</div><p>Creative specs were an open item on the discovery call with no linked task tracking asset readiness before launch.</p><div class="gap-rec"><strong>Recommendation:</strong> Auto-create a creative-assets task at Closed Won with an owner and a due date tied to the go-live.</div></div><div class="gap-card"><div class="gap-label">Gap 2: Lead-Source Granularity</div><p>Lead Source is 'Webinar' but doesn't capture which webinar or campaign — attribution for event-sourced pipeline is coarse.</p><div class="gap-rec"><strong>Recommendation:</strong> Add a campaign/source detail field so specific events are measurable.</div></div><div class="gap-card"><div class="gap-label">Gap 3: Amount-Change Note</div><p>The amount rose $90K → $120K with no reason logged; the scope change lives only in the rep's memory.</p><div class="gap-rec"><strong>Recommendation:</strong> Require a short reason on material amount changes for clean win analysis.</div></div><div class="gap-card"><div class="gap-label">Gap 4: Next-Step Hygiene</div><p>Next Step was not consistently updated between the proposal and close stages.</p><div class="gap-rec"><strong>Recommendation:</strong> Flag active opps whose Next Step is unchanged for 7+ days.</div></div><div class="gap-card"><div class="gap-label">Gap 5: Stakeholder Mapping</div><p>The analyst (Priya Shah) appeared only at proposal; no contact role was recorded for her earlier.</p><div class="gap-rec"><strong>Recommendation:</strong> Capture contact roles at discovery so the buying group is visible sooner.</div></div><div class="gap-card"><div class="gap-label">Gap 6: Measurement Follow-Through</div><p>The incrementality study was scoped but has no owner/date for the post-launch read-out.</p><div class="gap-rec"><strong>Recommendation:</strong> Book the study read-out at close to institutionalize the land → prove → expand loop.</div></div></div></div>
+<div class="footer"><span>Sample — fictional data · Deal Review Generator</span><span>Opp ID: OPP-DEMO-000123</span></div>
+</div>
+</body>
+</html>
