@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/33397430/README.md)
 # Deal-Review
 Print-ready HTML deal-process reviews for Closed Won &amp; Lost opportunities — CRM timeline, call intelligence, and automated process-gap analysis.
 # Deal Review Generator
