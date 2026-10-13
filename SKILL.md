@@ -14,19 +14,21 @@ templated (`{{placeholders}}`) so you can repoint it at your own schema. See
 - `config.yaml` filled in (copy from `config.example.yaml`): project, datasets, and the
   `schema_map` column mapping.
 - The `bq` CLI on PATH (or `gcloud_sdk_bin` set in config); read access to your warehouse.
+- run_query.ps1
 
 ## When to run
 Trigger when BOTH: (1) the user asks for a deal / deal-process review, AND (2) an opportunity name
 or ID is provided. If no opp is given, ask for it first.
 
 ## Step 1 — resolve the opportunity
-Run `10_resolve_opportunity.sql` with `-Params @{ opp_query = '<name-or-id>' }`.
+Run `run_query.ps1 -SqlFile 10_resolve_opportunity.sql -Params @{ opp_query = '<name-or-id>' } -Format prettyjson`.
 - **1 row** → use it; echo name / account / amount / stage / close date / owner to confirm.
 - **>1 row** → STOP and ask which one, showing `id | account | amount | stage | close_date | owner`.
 - **0 rows** → report no match; suggest checking spelling or using an ID.
 
 ## Step 2 — extract the deal data
 With the resolved ids, run the extraction templates (save each as JSON):
+Run each with `run_query.ps1 -SqlFile <file> -Params @{ ... } -OutFile <name>.json`.
 
 | Query | Produces |
 |---|---|
